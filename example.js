@@ -5,7 +5,7 @@ const client = new Client({
     // proxyAuthentication: { username: 'username', password: 'password' },
     puppeteer: { 
         // args: ['--proxy-server=proxy-server-that-requires-authentication.example.com'],
-        headless: false
+        headless: true
     }
 });
 
@@ -418,7 +418,7 @@ client.on('message', async msg => {
             requesterIds: ['number1@c.us', 'number2@c.us'],
             sleep: null
         });
-    } else {
+    } else if (msg.body === '!pinmsg') {
         /**
          * Pins a message in a chat, a method takes a number in seconds for the message to be pinned.
          * WhatsApp default values for duration to pass to the method are:
